@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    
+    <PropertyGroup>
+        <Name>Homer</Name>
+        <FullName>$(Name) Simpson</FullName>
+        <FilePath>$(MSBuildProjectDirectory)\*.*</FilePath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Files Include="$(FilePath)"/>
+    </ItemGroup>
+    
+    <Target Name="ListFiles">
+        <Message Text="@(Files)"/>
+    </Target>
+    
+    <Target Name="ReservedProperties">
+        <Message Text="MSBuildProjectDirectory: $(MSBuildProjectDirectory)"/>
+        <Message Text="LogOnServer: $(LOGONSERVER)"/>
+    </Target>
+
+    <Target Name="HelloWorld">
+        <Message Text="Hello, $(Name)" Importance="high"/>
+    </Target>
+
+    <Target Name="ByeWorld">
+        <Message Text="Bye, $(FullName)!" Importance="high"/>
+    </Target>
+
+</Project>
