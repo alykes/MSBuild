@@ -75,6 +75,7 @@ Then refernce it as follows:
 You can also override the value on the command line `/p:Name=Lisa`  
 
 There are some reserved properties  
+Reference: https://learn.microsoft.com/en-us/visualstudio/msbuild/msbuild-reserved-and-well-known-properties?view=vs-2022  
 ```
   <Target Name="ReservedProperties">
     <Message Text="MSBuildProjectDirectory: $(MSBuildProjectDirectory)"/>
@@ -99,3 +100,37 @@ To use the Items, use the following syntax
         <Message Text="@(Files)"/>
     </Target>
 ```
+
+You can access each item as they contain metadata
+
+`<Message Text="@(Files ->'%(ModifiedTime)')"/>`
+
+### MSBuild Execution Lifecycle
+
+How targets work with each other. There are often many targets and they can be distributed across many files.  
+You can also set dependencies.  
+You can also have multiple msbuild files.  
+
+To call targets in a specific order, you can seperate them with semi-colons  
+
+`msbuild multitarget.msbuild /t:TargetC,TargetA`  
+
+- DefaultTargets  
+or use `DefaultTargets="TargetC;TargetB;TargetA"` in the Project tag in the xml file  
+
+You can sepcify an entrypoint inside of Targets with the CallTarget tag  
+`<CallTarget Targets="TargetB;TargetC"/>`  
+
+- DependsOnTargets  
+You can also specify `DependsOnTargets` in the Target tag  
+`DependsOnTargets="TargetB"`  
+_Note: Only runs the target once!_
+
+- AfterTargets and BeforeTargets  
+They work differently to DependsOnTargets refer `2.5AfterTargets.msbuild`  
+
+`msbuild .\2.5.AfterTargets.msbuild /t:TargetC`
+
+To see how they both work together refer `2.6.BeforeTargets.msbuild`  
+`msbuild .\2.6.BeforeTargets.msbuild /t:TargetC`  
+

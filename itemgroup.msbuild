@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    
+    <ItemGroup>
+        <Simpsons Include="Homer">
+            <CatchPhrase>Doh!</CatchPhrase>
+        </Simpsons>
+        <Simpsons Include="Marge">
+            <CatchPhrase>Hmmmmmph</CatchPhrase>
+        </Simpsons>
+        <Simpsons Include="Bart">
+            <CatchPhrase>Eat my shorts!</CatchPhrase>
+        </Simpsons>
+        <Simpsons Include="Lisa">
+            <CatchPhrase>Bart!</CatchPhrase>
+        </Simpsons>
+        <Simpsons Include="Maggie">
+            <CatchPhrase>suck, suck, suck</CatchPhrase>
+        </Simpsons>
+    </ItemGroup>
+    
+    <Target Name="ListSimpsons">
+        <Message Text="@(Simpsons)"/>
+        <Message Text="@(Simpsons ->'%(CatchPhrase)') "/>
+    </Target>
+    
+</Project>

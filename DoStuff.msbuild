@@ -13,6 +13,7 @@
     
     <Target Name="ListFiles">
         <Message Text="@(Files)"/>
+        <Message Text="@(Files ->'%(ModifiedTime)') "/>
     </Target>
     
     <Target Name="ReservedProperties">

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Target Name="TargetA">
+    <Message Text="This is Target A" />
+    <CallTarget Targets="TargetB"/>
+  </Target>
+
+  <Target Name="TargetB">
+    <Message Text="This is Target B" />
+    <CallTarget Targets="TargetC"/>
+  </Target>
+
+  <Target Name="TargetC">
+    <Message Text="This is Target C" />
+  </Target>
+
+</Project>
