@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <UsingTask TaskName="Divide2Numbers" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll" >
+    
+    <ParameterGroup>
+      <Number1 ParameterType="System.Double" Required="true"/>
+      <Number2 ParameterType="System.Double" Required="true"/>
+      <Result ParameterType="System.Double" Output="true" />
+    </ParameterGroup>
+
+    <Task>
+      <Code Type="Fragment" Language="cs">
+        Log.LogMessage(MessageImportance.High, "Divided 2 numbers", null);
+        Result = Number1 / Number2;
+      </Code>
+    </Task>
+  </UsingTask>
+
+</Project>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+	
+  <PropertyGroup>
+		<Number2>10</Number2>
+		<Number1>5</Number1>
+	</PropertyGroup>
+
+  <Target Name="Math">
+    
+    <Message Text="Entry Point" />
+
+    <Divide2Numbers Number1="$(Number1)" Number2="$(Number2)">
+      <Output TaskParameter="Result" PropertyName="Quotient"/>
+    </Divide2Numbers>
+    <Message Text="The quotient is $(Quotient)" />
+
+  </Target>
+
+</Project>

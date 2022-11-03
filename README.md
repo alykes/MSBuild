@@ -51,6 +51,7 @@ Note: The file must be in the same directory as msbuild.exe, you will need to us
 `msbuild .\DoSomething.msbuild @e:\repos\MSBuild\args.rsp`  
 
 
+
 ### Properties
 Scalar variable, key value pair. Storage area
 ```
@@ -133,4 +134,29 @@ They work differently to DependsOnTargets refer `2.5AfterTargets.msbuild`
 
 To see how they both work together refer `2.6.BeforeTargets.msbuild`  
 `msbuild .\2.6.BeforeTargets.msbuild /t:TargetC`  
+
+- Conditional Targets  
+You set a variable to true or false with the `Property` tag then check it with a `condition`  
+refer `2.7.conditionalTargets.msbuild`  
+`msbuild .\2.7.conditionalTargets.msbuild /t:targetA`  
+conditionals can use different operators  
+
+### File Conventions
+
+rsp - response file  
+props - contains properties  
+targets - contains targets  
+proj - the overarching file  
+
+- Inheritance  
+proj file takes predenence, for example if you declare multiple targets with the same name, the one in the proj file takes precedence  
+
+### Custom Tasks
+Reference: https://learn.microsoft.com/en-us/visualstudio/msbuild/msbuild-task-reference?view=vs-2022  
+
+The different types of custom tasks  
+- Using Custom Tasks  
+- Implementing ITask  
+- Extending Task base class  
+- Inline Tasks  
 

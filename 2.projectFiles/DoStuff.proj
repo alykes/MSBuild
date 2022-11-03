@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Import Project="common.targets"/>
+  
+  <Target Name="EnterHere" DependsOnTargets="TargetA">
+    <Message Text="Entry Point" />
+    <Message Text="Hello, $(FullName)" />
+  </Target>
+
+  <Target Name="TargetA">
+    <Message Text="This is Target A from the proj file" />
+  </Target>
+
+</Project>
